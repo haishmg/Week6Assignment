@@ -1,0 +1,18 @@
+public class Solution {
+    // DO NOT MODIFY THE LIST. IT IS READ ONLY
+	public int lis(final List<Integer> a) {
+	    int res = 0;
+	    int[] lens = new int[a.size()];
+	    for (int i = 0; i < a.size(); i++) {
+	        int maxLen = 0;
+	        for (int j = 0; j < i; j++) {
+	            if (a.get(j) < a.get(i)) {
+	                maxLen = Math.max(maxLen, lens[j]);
+	            }
+	        }
+	        lens[i] = maxLen + 1;
+	        res = Math.max(res, lens[i]);
+	    }
+	    return res;
+	}
+}
