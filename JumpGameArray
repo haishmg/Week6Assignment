@@ -1,0 +1,16 @@
+public class Solution {
+    public int canJump(int[] A) {
+        int length = A.length;
+        if(A == null || length == 0) {
+            return 0;
+        }
+        
+	    int currJump= 0;
+	    for (int i=0; i<length; i++){
+	        if (currJump<0) return 0;
+	        currJump= Math.max(A[i],currJump);
+	        currJump--;
+	    }
+	    return 1;
+    }
+}
